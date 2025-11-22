@@ -1,0 +1,12 @@
+rd_station_dw:
+  outputs:
+    dev:
+      dbname: postgres
+      host: localhost
+      pass: pg12345
+      port: 5432
+      schema: raw
+      threads: 4
+      type: postgres
+      user: postgres
+  target: dev
