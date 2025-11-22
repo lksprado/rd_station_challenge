@@ -1,0 +1,14 @@
+
+version: 2
+
+models:
+  - name: stg_rdstation__bi_funnel_email
+    description: "Camada Clean"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+  - name: stg_rdstation__meta_email
+    description: "Camada Clean"

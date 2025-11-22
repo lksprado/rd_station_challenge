@@ -1,0 +1,63 @@
+
+version: 2
+
+sources:
+  - name: rd_station
+    database: postgres
+    schema: raw
+    tables:
+      - name: raw_bi_funnel_email
+        description: "Tabela onde cada linha representa um lead, contendo atributos e estágios do funil de Marketing e Pré-Vendas (período: 01/11/2018 a 15/12/2018)."
+        columns:
+          - name: id
+            description: "Identificador único do lead."
+          - name: lead_created_month
+            description: "Mês em que o lead é contabilizado no funil."
+
+          - name: mql_created_month
+            description: "Mês em que o lead se converteu em MQL (Marketing Qualified Lead)."
+
+          - name: sal_created_month
+            description: "Mês em que o MQL foi aceito pelo time comercial (Sales Accepted Lead)."
+
+          - name: campaign_last_touch
+            description: "Nome da campanha em que ocorreu a conversão no estágio analisado (último toque)."
+
+          - name: identifier_last_touch
+            description: "Landing Page associada ao last touch da conversão."
+
+          - name: converted_to_mql
+            description: "Flag indicando se o lead alcançou o estágio MQL."
+          - name: converted_to_sal
+            description: "Flag indicando se o lead alcançou o estágio SAL."
+
+          - name: is_*
+            description: "Flags booleanas que representam atributos adicionais que o lead possui (dinâmicas)."
+
+          - name: account_last_touch
+            description: "Nome da conta de origem do lead (Brasil, Partners, Latam, Portugal)."
+
+          - name: icp_score
+            description: "Perfil do lead (A a D), indicando sua qualidade de fit como cliente."
+
+          - name: lead_type
+            description: "Tipo/origem do lead no last touch (Ex.: MQL, HR, Indicação, Chat Online)."
+
+          - name: load_date
+            description: "Timestamp de carga da tabela em camada RAW."
+
+      - name: raw_metas_email
+        description: "Arquivo contendo metas mensais de geração de Leads, MQL e SAL para a área de Email Marketing."
+        columns:
+          - name: month
+            description: "Mês de referência da meta."
+
+          - name: leads_goal
+            description: "Meta mensal de geração de leads."
+          - name: mql_goal
+            description: "Meta mensal de geração de MQL."
+          - name: sal_goal
+            description: "Meta mensal de geração de SAL."
+
+          - name: load_date
+            description: "Timestamp de carga da tabela em camada RAW."

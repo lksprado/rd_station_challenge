@@ -1,0 +1,74 @@
+version: 2
+
+models:
+  - name: mrt_lead_vs_meta
+    description: Modelo de comparação diária entre resultados alcançados e metas mensais por conta e perfil.
+    columns:
+      - name: created_date
+        description: Data do dia consolidado.
+      - name: conta
+        description: Última conta de origem associada ao lead.
+      - name: perfil
+        description: Classificação de ICP atribuída ao lead.
+      - name: mes
+        description: Mês numérico referente ao período consolidado.
+      - name: lead_type
+        description: Tipo do lead registrado no funil.
+      - name: qt_leads_diario
+        description: Quantidade de leads gerados no dia.
+      - name: qt_mql_diario
+        description: Quantidade de leads convertidos em MQL no dia.
+      - name: qt_sal_diario
+        description: Quantidade de leads convertidos em SAL no dia.
+      - name: qt_email_diario
+        description: Quantidade de emails únicos registrados no dia.
+      - name: ultimo_horario_conversao_dia
+        description: Horário mais recente de conversão dentro do dia.
+      - name: conversao_lead_para_mql_diario
+        description: Taxa diária de conversão de leads para MQL.
+      - name: conversao_mql_para_sal_diario
+        description: Taxa diária de conversão de MQL para SAL.
+      - name: mtd_leads
+        description: Acumulado mensal de leads até a data (month-to-date).
+      - name: mtd_mql
+        description: Acumulado mensal de MQL até a data (month-to-date).
+      - name: mtd_sal
+        description: Acumulado mensal de SAL até a data (month-to-date).
+      - name: meta_lead_mensal
+        description: Meta mensal de geração de leads para a conta e perfil.
+      - name: meta_mql_mensal
+        description: Meta mensal de MQL para a conta e perfil.
+      - name: meta_sal_mensal
+        description: Meta mensal de SAL para a conta e perfil.
+      - name: meta_lead_diaria
+        description: Meta diária de leads calculada a partir da meta mensal.
+      - name: meta_mql_diaria
+        description: Meta diária de MQL calculada a partir da meta mensal.
+      - name: meta_sal_diaria
+        description: Meta diária de SAL calculada a partir da meta mensal.
+
+  - name: mrt_top_5_campaigns_per_icp_score
+    description: Ranking das 5 campanhas com mais impacto por etapa do funil e score de ICP.
+    columns:
+      - name: rank
+        description: Posição dentro do top 5 da etapa correspondente.
+      - name: top
+        description: Identificação da etapa do funil usada no ranking (Leads, MQL ou SAL).
+      - name: campaign_last_touch
+        description: Campanha atribuída ao último touchpoint do lead.
+      - name: icp_score
+        description: Score de ICP do lead associado à campanha.
+      - name: qt_leads
+        description: Quantidade de leads da campanha dentro da etapa considerada.
+
+  - name: mrt_top_5_campaigns_type_hr
+    description: Ranking das 5 campanhas com maior geração de leads do tipo HR.
+    columns:
+      - name: rank
+        description: Posição dentro do top 5 de campanhas para leads HR.
+      - name: top
+        description: Identificação textual do ranking.
+      - name: campaign_last_touch
+        description: Campanha atribuída ao último touchpoint do lead HR.
+      - name: qt_leads
+        description: Quantidade de leads HR gerados pela campanha.
